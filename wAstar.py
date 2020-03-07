@@ -210,6 +210,76 @@ def main():
     # end of while loop
     print(flag)
     print(explored_matrix)
+    if flag=="Goal found":
+        path = []
+        reach_goal = 0
+        path.append(current)
+        node = path[-1]
+        x = node[1]
+        y = current[2]
+        plt.plot(y-1, a-x,'cx', fillstyle='full', markersize=22)
+        plt.pause(.1)
+        #While checking neighbors, also check goal.
+        while(reach_goal== 0):
+            #find nearest neighbor with least calues explored_matrix value that is greater than 0.
+            # add that neighbot to path.
+            #if that neighbot == start:
+            #   plot and break;
+            neighbors = []
+            #Neighbor Up
+            print("Neighbour Up")
+            x_neighbor = x 
+            y_neighbor = y+1
+            score = explored_matrix[x_neighbor][y_neighbor]
+            print(x_neighbor," ",y_neighbor," ",score)
+            if(score>0):
+                neighbors.append([score,x_neighbor,y_neighbor] )
+            #Neighbor Right
+            print("Neighbour Right")
+            x_neighbor = x+1
+            y_neighbor = y
+            score = explored_matrix[x_neighbor][y_neighbor]
+            print(x_neighbor," ",y_neighbor," ",score)
+            if(score>0):
+                neighbors.append([score,x_neighbor,y_neighbor] )
+            #Neighbor Down
+            print("Neighbour Down")
+            x_neighbor = x
+            y_neighbor = y-1
+            score = explored_matrix[x_neighbor][y_neighbor]
+            print(x_neighbor," ",y_neighbor," ",score)
+            if(score>0):
+                neighbors.append([score,x_neighbor,y_neighbor] )
+            #Neighbor Left
+            print("Neighbour Left")
+            x_neighbor = x-1
+            y_neighbor = y
+            score = explored_matrix[x_neighbor][y_neighbor]
+            print(x_neighbor," ",y_neighbor," ",score)
+            if(score>0):
+                neighbors.append([score,x_neighbor,y_neighbor] )
+            neighbors.sort()
+            print(neighbors)
+            if(len(neighbors)==0):
+                print("Path not found")
+                break
+            prev = node
+            node = neighbors[0]
+            x = node[1]
+            y = node[2]
+            x_prev = prev[1]
+            y_prev = prev[2]
+            # plt.plot(y-1, a-x,'cx', fillstyle='full', markersize=22)
+            plt.plot([y_prev-1, y -1],[a - x_prev,a-x],'go-',linewidth=2)
+            plt.pause(1)
+            print("here")
+            if(node[1]==start2[0] and node[2]==start2[1]):
+                reach_goal = 1
+                x = node[1]
+                y = node[2]
+                plt.plot(y-1, a-x,'cx', fillstyle='full', markersize=22)
+                plt.pause(5)
+                break
      
     # # naming the axes 
     # plt.xlabel('x - axis')
