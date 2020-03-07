@@ -1,3 +1,13 @@
+# Create open list
+# Create closed list
+# Define Maze
+# Define Start and End node
+# Add Start to Open_list
+# Current = Start 
+# While(Open_list==0)
+# N_up: Check if it is obstacle or 
+
+# How to select current?
 # # importing the required module 
 import matplotlib.pyplot as plt 
 import numpy as np
@@ -5,39 +15,16 @@ import numpy as np
 
 def main():
 
-    # maze =  np.array(              [[0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-    #                                 [0, 1, 0, 0, 0, 0, 1, 0, 0, 0],
-    #                                 [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-    #                                 [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-    #                                 [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-    #                                 [0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
-    #                                 [0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
-    #                                 [0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
-    #                                 [0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
-    #                                 [0, 0, 0, 0, 0, 1, 0, 0, 0, 0]]    )
-
-    maze =  np.array(              [[0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-                                    [0, 1, 0, 0, 0, 0, 1, 0, 0, 0],
-                                    [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-                                    [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-                                    [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-                                    [0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
-                                    [0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
-                                    [0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
-                                    [0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
-                                    [0, 0, 0, 0, 0, 1, 0, 0, 0, 0]]    )
-
-
-    # maze =  np.array(              [[0, 1, 0, 1, 0, 0, 0, 0, 0, 0],
-    #                                 [0, 1, 0, 1, 0, 1, 0, 0, 0, 0],
-    #                                 [0, 1, 0, 1, 0, 0, 0, 0, 0, 0],
-    #                                 [0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
-    #                                 [0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
-    #                                 [0, 1, 0, 1, 1, 1, 0, 0, 0, 1],
-    #                                 [0, 1, 0, 1, 0, 0, 0, 0, 0, 0],
-    #                                 [0, 1, 0, 1, 0, 1, 0, 0, 0, 0],
-    #                                 [0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
-    #                                 [0, 0, 0, 1, 0, 0, 0, 0, 0, 0]] )
+    maze =  np.array(              [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]    )
 
     
     # res = maze[::-1] 
@@ -64,7 +51,8 @@ def main():
                 plt.plot(j-1, a-i,'bs', fillstyle='full', markersize=25) 
     
     start = (0,0)
-    end = (len(maze)-1,len(maze[0])-1)
+    # end = (len(maze)-1,len(maze[0])-1)
+    end = (len(maze)-2,1)
     # end = (9,8)
     # end = (0,len(maze[0])-1)
 
@@ -186,13 +174,13 @@ def main():
             flag = "Goal not found"
             break
         else:
-            open_list.sort()
+            # open_list.sort()
             plt.pause(0.1) 
             # plt.plot(x, y,'yo', fillstyle='full', markersize=22)
             plt.plot(y-1, a-x,'yo', fillstyle='full', markersize=22)
             plt.pause(0.1) 
             # print(x," ",y)
-            current = open_list[0]
+            current = open_list[-1]
             if current[1]==end2[0] and current[2]==end2[1]:
                 plt.plot(current[2]-1, a-current[1],'yo', fillstyle='full', markersize=22)
                 flag = "Goal found"

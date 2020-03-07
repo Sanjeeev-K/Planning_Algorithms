@@ -6,15 +6,15 @@ import numpy as np
 def main():
 
     # maze =  np.array(              [[0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+    #                                 [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+    #                                 [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+    #                                 [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
     #                                 [0, 1, 0, 0, 0, 0, 1, 0, 0, 0],
-    #                                 [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-    #                                 [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-    #                                 [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-    #                                 [0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
-    #                                 [0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
-    #                                 [0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
-    #                                 [0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
-    #                                 [0, 0, 0, 0, 0, 1, 0, 0, 0, 0]]    )
+    #                                 [0, 1, 0, 0, 0, 0, 1, 0, 0, 0],
+    #                                 [0, 1, 0, 0, 0, 0, 1, 0, 0, 0],
+    #                                 [0, 1, 0, 0, 0, 0, 1, 0, 0, 0],
+    #                                 [0, 1, 0, 0, 0, 0, 1, 0, 0, 0],
+    #                                 [0, 0, 0, 0, 0, 0, 1, 0, 0, 0]]    )
 
     maze =  np.array(              [[0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
                                     [0, 1, 0, 0, 0, 0, 1, 0, 0, 0],
@@ -122,7 +122,7 @@ def main():
     closed_list = []
     current = open_list[0]
     counter = 1
-
+    weight = 100
     a = len(maze2)
     b = len(maze2[0])
     explored_matrix = np.ones((a,b)) # Obstacles as -2, Unexplored at -1, Explored at numbers>=0, If it has been added to the open list, then -3.
@@ -145,7 +145,7 @@ def main():
         if(explored_matrix[x][y]== -1):                 # Checking if this neighboring node is not obstacle or already explored.
             Heuristic = abs(end2[0]-x)+ abs(end2[1]-y) #Manhattan distance
             Cost = current[3]+1
-            g = Cost + Heuristic
+            g = Cost + weight*Heuristic
             open_list.append([g,x,y,Cost])
             explored_matrix[x][y]=-3
         #Neighbor Right
@@ -154,7 +154,7 @@ def main():
         if(explored_matrix[x][y]== -1):                 # Checking if this neighboring node is not obstacle or already explored.
             Heuristic = abs(end2[0]-x)+ abs(end2[1]-y) #Manhattan distance
             Cost = current[3]+1
-            g = Cost + Heuristic
+            g = Cost + weight*Heuristic
             open_list.append([g,x,y,Cost])
             explored_matrix[x][y]=-3
         #Neighbor Down
@@ -163,7 +163,7 @@ def main():
         if(explored_matrix[x][y]== -1):                 # Checking if this neighboring node is not obstacle or already explored.
             Heuristic = abs(end2[0]-x)+ abs(end2[1]-y) #Manhattan distance
             Cost = current[3]+1
-            g = Cost + Heuristic
+            g = Cost + weight*Heuristic
             open_list.append([g,x,y,Cost])
             explored_matrix[x][y]=-3
         #Neighbor Left
@@ -172,7 +172,7 @@ def main():
         if(explored_matrix[x][y]== -1):                 # Checking if this neighboring node is not obstacle or already explored.
             Heuristic = abs(end2[0]-x)+ abs(end2[1]-y) #Manhattan distance
             Cost = current[3]+1
-            g = Cost + Heuristic
+            g = Cost + weight*Heuristic
             open_list.append([g,x,y,Cost])
             explored_matrix[x][y]=-3
         open_list.remove(current)
