@@ -1,5 +1,7 @@
 # Planning_Algorithms
-This repository demonstrated finding a path between a defined start and goal location in a grid environment
+This repository shows different methods of finding a path between a defined start and goal location in a grid environment.
+
+
 Algorithms covered : BFS, DFS, A*, weighted A*, Greedy
 
 
