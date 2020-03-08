@@ -6,26 +6,37 @@ import numpy as np
 def main():
 
     # maze =  np.array(              [[0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+    #                                 [0, 1, 0, 0, 0, 0, 1, 0, 0, 0],
     #                                 [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
     #                                 [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
     #                                 [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+    #                                 [0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+    #                                 [0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+    #                                 [0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+    #                                 [0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+    #                                 [0, 0, 0, 0, 0, 1, 0, 0, 0, 0]]    )
+
+    # maze =  np.array(              [[0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
     #                                 [0, 1, 0, 0, 0, 0, 1, 0, 0, 0],
-    #                                 [0, 1, 0, 0, 0, 0, 1, 0, 0, 0],
-    #                                 [0, 1, 0, 0, 0, 0, 1, 0, 0, 0],
-    #                                 [0, 1, 0, 0, 0, 0, 1, 0, 0, 0],
-    #                                 [0, 1, 0, 0, 0, 0, 1, 0, 0, 0],
-    #                                 [0, 0, 0, 0, 0, 0, 1, 0, 0, 0]]    )
+    #                                 [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+    #                                 [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+    #                                 [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+    #                                 [0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+    #                                 [0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+    #                                 [0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+    #                                 [0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+    #                                 [0, 0, 0, 0, 0, 1, 0, 0, 0, 0]]    )
 
     maze =  np.array(              [[0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+                                    [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+                                    [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+                                    [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+                                    [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+                                    [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+                                    [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
                                     [0, 1, 0, 0, 0, 0, 1, 0, 0, 0],
-                                    [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-                                    [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-                                    [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-                                    [0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
-                                    [0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
-                                    [0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
-                                    [0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
-                                    [0, 0, 0, 0, 0, 1, 0, 0, 0, 0]]    )
+                                    [0, 1, 0, 0, 0, 0, 1, 0, 0, 0],
+                                    [0, 0, 0, 0, 0, 0, 1, 0, 0, 0]]    )
 
 
     # maze =  np.array(              [[0, 1, 0, 1, 0, 0, 0, 0, 0, 0],
@@ -40,9 +51,10 @@ def main():
     #                                 [0, 0, 0, 1, 0, 0, 0, 0, 0, 0]] )
 
     
-    # res = maze[::-1] 
-    # maze = res
-    # maze = np.transpose(maze)
+    start = (0,0)
+    # end = (0,len(maze[0])-1)
+    end = (len(maze)-1,len(maze[0])-1)
+    # end = (9,8)
 
     a = len(maze) + 2
     b = len(maze[0]) + 2
@@ -62,11 +74,6 @@ def main():
             else:
                 # plt.plot(i, j,'bs', fillstyle='full', markersize=25) 
                 plt.plot(j-1, a-i,'bs', fillstyle='full', markersize=25) 
-    
-    start = (0,0)
-    end = (len(maze)-1,len(maze[0])-1)
-    # end = (9,8)
-    # end = (0,len(maze[0])-1)
 
     # plt.plot(start[0]+1, start[1]+1,'rs', fillstyle='full', markersize=27) 
     # plt.plot(end[0]+1, end[1]+1,'gs', fillstyle='full', markersize=27) 
@@ -122,7 +129,7 @@ def main():
     closed_list = []
     current = open_list[0]
     counter = 1
-    weight = 100
+
     a = len(maze2)
     b = len(maze2[0])
     explored_matrix = np.ones((a,b)) # Obstacles as -2, Unexplored at -1, Explored at numbers>=0, If it has been added to the open list, then -3.
@@ -139,14 +146,20 @@ def main():
     # input()
 
     while(len(open_list)!=0):
+        x = current[1]
+        y = current[2]
+        plt.plot(y-1, a-x,'yo', fillstyle='full', markersize=22)
         #Neighbor Up
         x = current[1]
         y = current[2]+1
         if(explored_matrix[x][y]== -1):                 # Checking if this neighboring node is not obstacle or already explored.
             Heuristic = abs(end2[0]-x)+ abs(end2[1]-y) #Manhattan distance
             Cost = current[3]+1
-            g = Cost + weight*Heuristic
+            g = Cost + Heuristic
+            g =  Heuristic
             open_list.append([g,x,y,Cost])
+            plt.plot(y-1, a-x,'cx', fillstyle='full', markersize=22)
+            plt.pause(.1)
             explored_matrix[x][y]=-3
         #Neighbor Right
         x = current[1]+1
@@ -154,8 +167,11 @@ def main():
         if(explored_matrix[x][y]== -1):                 # Checking if this neighboring node is not obstacle or already explored.
             Heuristic = abs(end2[0]-x)+ abs(end2[1]-y) #Manhattan distance
             Cost = current[3]+1
-            g = Cost + weight*Heuristic
+            g = Cost + Heuristic
+            g =  Heuristic
             open_list.append([g,x,y,Cost])
+            plt.plot(y-1, a-x,'cx', fillstyle='full', markersize=22)
+            plt.pause(.1)
             explored_matrix[x][y]=-3
         #Neighbor Down
         x = current[1]
@@ -163,8 +179,11 @@ def main():
         if(explored_matrix[x][y]== -1):                 # Checking if this neighboring node is not obstacle or already explored.
             Heuristic = abs(end2[0]-x)+ abs(end2[1]-y) #Manhattan distance
             Cost = current[3]+1
-            g = Cost + weight*Heuristic
+            g = Cost + Heuristic
+            g =  Heuristic
             open_list.append([g,x,y,Cost])
+            plt.plot(y-1, a-x,'cx', fillstyle='full', markersize=22)
+            plt.pause(.1)
             explored_matrix[x][y]=-3
         #Neighbor Left
         x = current[1]-1
@@ -172,9 +191,13 @@ def main():
         if(explored_matrix[x][y]== -1):                 # Checking if this neighboring node is not obstacle or already explored.
             Heuristic = abs(end2[0]-x)+ abs(end2[1]-y) #Manhattan distance
             Cost = current[3]+1
-            g = Cost + weight*Heuristic
+            g = Cost + Heuristic
+            g =  Heuristic
             open_list.append([g,x,y,Cost])
+            plt.plot(y-1, a-x,'cx', fillstyle='full', markersize=22)
+            plt.pause(.1)
             explored_matrix[x][y]=-3
+        # input()
         open_list.remove(current)
         closed_list.append(current)
         x = current[1]
@@ -187,17 +210,17 @@ def main():
             break
         else:
             open_list.sort()
-            plt.pause(0.1) 
+            # plt.pause(0.1) 
             # plt.plot(x, y,'yo', fillstyle='full', markersize=22)
-            plt.plot(y-1, a-x,'yo', fillstyle='full', markersize=22)
-            plt.pause(0.1) 
+            # plt.plot(y-1, a-x,'yo', fillstyle='full', markersize=22)
+            # plt.pause(0.01) 
             # print(x," ",y)
             current = open_list[0]
             if current[1]==end2[0] and current[2]==end2[1]:
                 plt.plot(current[2]-1, a-current[1],'yo', fillstyle='full', markersize=22)
                 flag = "Goal found"
                 print(explored_matrix)
-                plt.pause(5)
+                plt.pause(2)
                 break
             # print(open_list)
             # print(closed_list)
@@ -210,6 +233,11 @@ def main():
     # end of while loop
     print(flag)
     print(explored_matrix)
+
+    # plt.plot(end[1]+1-1, a-end[0]-1,'rs', fillstyle='full', markersize=27) 
+    # plt.pause(2)
+
+    # input()
     if flag=="Goal found":
         path = []
         reach_goal = 0
@@ -227,39 +255,39 @@ def main():
             #   plot and break;
             neighbors = []
             #Neighbor Up
-            print("Neighbour Up")
+            # print("Neighbour Up")
             x_neighbor = x 
             y_neighbor = y+1
             score = explored_matrix[x_neighbor][y_neighbor]
-            print(x_neighbor," ",y_neighbor," ",score)
+            # print(x_neighbor," ",y_neighbor," ",score)
             if(score>0):
                 neighbors.append([score,x_neighbor,y_neighbor] )
             #Neighbor Right
-            print("Neighbour Right")
+            # print("Neighbour Right")
             x_neighbor = x+1
             y_neighbor = y
             score = explored_matrix[x_neighbor][y_neighbor]
-            print(x_neighbor," ",y_neighbor," ",score)
+            # print(x_neighbor," ",y_neighbor," ",score)
             if(score>0):
                 neighbors.append([score,x_neighbor,y_neighbor] )
             #Neighbor Down
-            print("Neighbour Down")
+            # print("Neighbour Down")
             x_neighbor = x
             y_neighbor = y-1
             score = explored_matrix[x_neighbor][y_neighbor]
-            print(x_neighbor," ",y_neighbor," ",score)
+            # print(x_neighbor," ",y_neighbor," ",score)
             if(score>0):
                 neighbors.append([score,x_neighbor,y_neighbor] )
             #Neighbor Left
-            print("Neighbour Left")
+            # print("Neighbour Left")
             x_neighbor = x-1
             y_neighbor = y
             score = explored_matrix[x_neighbor][y_neighbor]
-            print(x_neighbor," ",y_neighbor," ",score)
+            # print(x_neighbor," ",y_neighbor," ",score)
             if(score>0):
                 neighbors.append([score,x_neighbor,y_neighbor] )
             neighbors.sort()
-            print(neighbors)
+            # print(neighbors)
             if(len(neighbors)==0):
                 print("Path not found")
                 break
@@ -271,8 +299,8 @@ def main():
             y_prev = prev[2]
             # plt.plot(y-1, a-x,'cx', fillstyle='full', markersize=22)
             plt.plot([y_prev-1, y -1],[a - x_prev,a-x],'go-',linewidth=2)
-            plt.pause(1)
-            print("here")
+            plt.pause(.2)
+            # print("here")
             if(node[1]==start2[0] and node[2]==start2[1]):
                 reach_goal = 1
                 x = node[1]
@@ -280,6 +308,22 @@ def main():
                 plt.plot(y-1, a-x,'cx', fillstyle='full', markersize=22)
                 plt.pause(5)
                 break
+
+
+
+
+            
+            # x_next = x
+            # y_next = y+1  #First check Up.
+            # next_score = explored_matrix[x_next][y_next]
+            # if(next_score<0):
+            #     x_next = x+1
+            #     y_next = y
+
+
+
+
+
      
     # # naming the axes 
     # plt.xlabel('x - axis')
